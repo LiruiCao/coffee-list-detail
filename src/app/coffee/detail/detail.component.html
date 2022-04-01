@@ -1,0 +1,36 @@
+<form
+  class="show-from-source-code"
+  *ngIf="formData"
+  [formGroup]="formData"
+  (ngSubmit)="saveList(formData.value)"
+  (click)="focusBack()"
+>
+  <div class="form-group">
+    <label
+      >{{ Label.id }}
+      <input readonly="readonly" value="{{ info.id }}" class="form-control" />
+    </label>
+  </div>
+
+  <div class="form-group">
+    <label
+      >{{ Label.name }}
+      <input readonly="readonly" value="{{ info.origin }}" class="form-control" />
+    </label>
+  </div>
+
+  <div class="form-group">
+    <label
+      >{{ Label.comments }}
+      <input
+        formControlName="Notes"
+        value="{{ info.notes }}"
+        class="form-control width"
+      />
+    </label>
+  </div>
+
+  <button type="submit" [disabled]="!formData.valid" class="btn btn-default">
+    {{ Label.back }}
+  </button>
+</form>

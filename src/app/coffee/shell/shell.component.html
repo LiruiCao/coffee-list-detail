@@ -1,0 +1,5 @@
+<!-- <ng-container *ngIf="(coffees$| async).length"> -->
+<!-- <app-list *ngFor="coffees$ | async">hello</app-list>   -->
+
+<!-- </ng-container> -->
+<app-list [list]="coffees$ | async"></app-list>  

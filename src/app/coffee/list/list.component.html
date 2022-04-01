@@ -1,0 +1,27 @@
+<div class="page-container">
+  <table class="table show-table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>{{ ListHeader.id }}</th>
+        <th>{{ ListHeader.name }}</th>
+        <th>{{ ListHeader.comments }}</th>
+        <th>{{ ListHeader.action }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor=" let item of listData | paginate: { itemsPerPage: 10, currentPage: p, totalItems: pageCount }">
+        <td>{{ item.id }}</td>
+        <td>{{ item.origin }}</td>
+        <td>{{ item.notes }}</td>
+        <td>
+          <a id="{{item.id}}" [title]="item.id + ' details'" [routerLink]="['/info', item.id]" routerLinkActive="active">
+            View
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="paginaion-layout">
+    <pagination-controls  (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>
